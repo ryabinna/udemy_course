@@ -1,24 +1,76 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import Register from '@/views/Register';
+import GlobalFeed from '@/views/GlobalFeed';
+import YourFeed from '@/views/YourFeed';
+import TagFeed from '@/views/TagFeed';
+import Login from '@/views/Login';
+import Article from '@/views/Article';
+import CreateArticle from '@/views/CreateArticle';
+import EditArticle from '@/views/EditArticle';
+import Settings from '@/views/Settings';
+import UserProfile from '@/views/UserProfile';
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'globalFeed',
+    component: GlobalFeed
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/feed',
+    name: 'yourFeed',
+    component: YourFeed
+  },
+  {
+    path: '/tags/:slug',
+    name: 'tag',
+    component: TagFeed
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/articles/new',
+    name: 'createArticle',
+    component: CreateArticle
+  },
+  {
+    path: '/articles/:slug',
+    name: 'article',
+    component: Article
+  },
+  {
+    path: '/articles/:slug/edit',
+    name: 'editArticle',
+    component: EditArticle
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: Settings
+  },
+  {
+    path: '/profiles/:slug',
+    name: 'userProfile',
+    component: UserProfile
+  },
+  {
+    path: '/profiles/:slug/favorites',
+    name: 'userProfileFavorites',
+    component: UserProfile
+  },
+
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 
